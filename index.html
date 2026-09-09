@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoVigilant - GEA Soluciones IT</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Librería para Gráficos Dinámicos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ================= BARRA DE ACCESIBILIDAD ================= -->
+  <div class="accessibility-bar">
+    <button id="btn-idioma" title="Cambiar Idioma">EN</button>
+    <div class="divider"></div>
+    <button id="btn-contraste" title="Modo Contraste">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:14px; height:14px;">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.644m19.043 0a1.012 1.012 0 0 1 0 .644M12 18.75c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8ZM12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+      </svg>
+    </button>
+    <div class="divider"></div>
+    <button id="btn-fuente" title="Tamaño de Letra">A+</button>
+  </div>
+
+  <!-- ================= HEADER MAESTRO CENTRADO (PÚBLICO) ================= -->
+  <header class="main-header" id="main-header">
+    <div class="header-dark-zone">
+      <div class="header-center-branding">
+        <h1 class="brand-title">CoVigilant</h1>
+        <p id="t-subtituloHeader" class="brand-subtitle">GEA SOLUCIONES IT</p>
+      </div>
+    </div>
+    
+    <div class="header-light-zone">
+      <div class="header-action-row">
+        <button id="t-btnIniciarSesion" class="btn-primary-red-centered" onclick="navegar(4)">Iniciar sesión</button>
+      </div>
+
+      <nav class="main-nav-centered" id="public-nav">
+        <button id="nav-1" class="nav-link-clean active" onclick="navegar(1)">CoVigilant</button>
+        <button id="nav-2" class="nav-link-clean" onclick="navegar(2)">Servicios</button>
+        <button id="nav-3" class="nav-link-clean" onclick="navegar(3)">Contacto / Equipo</button>
+        <button id="nav-4" class="nav-link-clean" onclick="navegar(4)">Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= CONTENIDO DINÁMICO PÚBLICO ================= -->
+  <main class="main-content" id="public-content">
+    
+    <!-- PANTALLA 1: HOME -->
+    <section id="pantalla-1" class="tab-content active">
+      <div class="quick-access-grid">
+        <button class="btn-quick" onclick="irAlServicio(0)">CCTV</button>
+        <button class="btn-quick" onclick="irAlServicio(1)">Redes</button>
+        <button class="btn-quick" onclick="irAlServicio(2)">Soporte</button>
+        <button class="btn-quick" onclick="irAlServicio(3)">Web</button>
+      </div>
+
+      <div class="card card-home">
+        <div class="image-mosaic">
+          <img src="./img/CreacióndePáginasWeb_servicios.jpg" alt="CCTV" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'" class="img-h1">
+          <img src="./img/ConfiguracióndeRedesLocales_servicios.jpg" alt="Redes" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'" class="img-h2">
+          <img src="./img/mantenimiento_servicios.png" alt="Servicios" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'" class="img-h3">
+        </div>
+        <div class="info-side text-dynamic">
+          <h2 id="t-quienesSomosTitulo">¿Quiénes Somos?</h2>
+          <p id="t-quienesSomosDesc">Somos un grupo de aprendices del programa ADSO dedicados a brindar soluciones técnicas en seguridad electrónica y soporte informático.</p>
+          
+          <h3 id="t-nuestrosServicios">Nuestros Servicios:</h3>
+          <ul class="services-list">
+            <li id="t-servicio1">Instalación de cámaras (CCTV)</li>
+            <li id="t-servicio2">Mantenimiento de computadores</li>
+            <li id="t-servicio3">Configuración de redes locales</li>
+            <li id="t-servicio4">Creación de páginas web básicas</li>
+          </ul>
+
+          <h3 id="t-nuestroProceso">¿Cómo trabajamos?</h3>
+          <ol class="process-list">
+            <li id="t-paso1"><strong>Diagnóstico:</strong> Evaluamos las necesidades técnicas o de seguridad del cliente.</li>
+            <li id="t-paso2"><strong>Cotización:</strong> Presentamos una propuesta clara con costos y tiempos.</li>
+            <li id="t-paso3"><strong>Instalación:</strong> Ejecutamos el servicio con personal capacitado.</li>
+            <li id="t-paso4"><strong>Soporte continuo:</strong> Brindamos seguimiento y mantenimiento posterior.</li>
+          </ol>
+
+          <div class="contact-subfoot">
+            <p><strong id="t-contactoEmail">Contacto E-mail:</strong> covigilant@soy.sena.edu.co</p>
+            <p><strong id="t-ubicacion">Ubicación:</strong> <span id="t-ubicacionDetalle">Centro de Servicios Financieres, Bogotá, D.C., Colombia</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULARIO DE SOLICITUD -->
+      <div class="card card-form-solicitud">
+        <h2 id="t-solicitudTitulo">Solicita tu servicio o cotización</h2>
+        <p id="t-solicitudDesc" class="text-dynamic">Cuéntanos qué necesitas y nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
+
+        <div id="solicitud-status" class="status-box hidden"></div>
+
+        <form id="form-solicitud" onsubmit="handleSolicitud(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label id="t-labelNombre" class="form-label">Nombre completo</label>
+              <input type="text" id="sol-nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label id="t-labelCorreoSol" class="form-label">Correo electrónico</label>
+              <input type="email" id="sol-correo" placeholder="ejemplo@correo.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label id="t-labelTelefono" class="form-label">Teléfono</label>
+              <input type="tel" id="sol-telefono" placeholder="Ej: 3001234567" required>
+            </div>
+            <div class="form-group">
+              <label id="t-labelTipoServicio" class="form-label">Tipo de servicio</label>
+              <select id="sol-tipo-servicio" required>
+                <option value="" id="t-optSeleccione">Selecciona una opción</option>
+                <option value="CCTV" id="t-optCCTV">CCTV</option>
+                <option value="Redes" id="t-optRedes">Redes</option>
+                <option value="Soporte" id="t-optSoporte">Soporte técnico</option>
+                <option value="Web" id="t-optWeb">Desarrollo web</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="t-labelDireccion" class="form-label">Dirección / Ubicación</label>
+            <input type="text" id="sol-direccion" placeholder="Barrio, ciudad" required>
+          </div>
+          <div class="form-group">
+            <label id="t-labelMensaje" class="form-label">Detalles de la solicitud</label>
+            <textarea id="sol-mensaje" rows="4" placeholder="Describe brevemente lo que necesitas..." required></textarea>
+          </div>
+          <button type="submit" id="t-btnEnviarSolicitud" class="btn-submit">Enviar solicitud</button>
+        </form>
+      </div>
+
+      <!-- BOTÓN DE CONTACTO POR WHATSAPP -->
+      <div class="card card-whatsapp">
+        <div class="whatsapp-info">
+          <h3 id="t-whatsappTitulo">¿Prefieres escribirnos directamente?</h3>
+          <p id="t-whatsappDesc" class="text-dynamic">Contáctanos por WhatsApp y con gusto te atenderemos.</p>
+        </div>
+        <button id="t-btnWhatsapp" class="btn-whatsapp" onclick="contactarWhatsapp()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:20px; height:20px;">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12.003 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.763.464 3.484 1.345 4.997L2 22l5.117-1.334a9.96 9.96 0 0 0 4.886 1.284h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.182-2.929-7.071a9.935 9.935 0 0 0-7.072-2.876zm0 18.184h-.003a8.223 8.223 0 0 1-4.194-1.148l-.301-.179-3.037.792.811-2.961-.196-.304a8.194 8.194 0 0 1-1.257-4.384c0-4.527 3.685-8.212 8.213-8.212a8.16 8.16 0 0 1 5.807 2.407 8.163 8.163 0 0 1 2.404 5.809c0 4.528-3.685 8.213-8.213 8.213z"/>
+          </svg>
+          <span id="t-labelBtnWhatsapp">Escríbenos por WhatsApp</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PANTALLA 2: SERVICIOS -->
+    <section id="pantalla-2" class="tab-content">
+      <h2 id="t-exploraServicios" class="section-title">Explora nuestros servicios</h2>
+      <div class="carousel-container card">
+        <button class="carousel-btn" onclick="anteriorSlide()">&lt;</button>
+        <div class="carousel-slide">
+          <div class="carousel-img-wrapper">
+            <img id="carousel-img" src="" alt="Servicio" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'">
+          </div>
+          <h3 id="carousel-title" class="carousel-heading"></h3>
+          <p id="carousel-desc" class="text-dynamic"></p>
+        </div>
+        <button class="carousel-btn" onclick="siguienteSlide()">&gt;</button>
+      </div>
+      <div id="carousel-dots" class="dots-container"></div>
+    </section>
+
+    <!-- PANTALLA 3: EQUIPO -->
+    <section id="pantalla-3" class="tab-content">
+      <h2 id="t-nuestroEquipo" class="section-title">Nuestro Equipo</h2>
+      <div class="team-grid">
+        <div class="team-card card">
+          <img src="./img/andersonempresariTarjeta.jpg" alt="Anderson Tovar" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'">
+          <h3>Anderson Tovar Coronado</h3>
+          <div class="divider-line"></div>
+          <p class="role-text">Responsable de la base de datos e inteligencia</p>
+        </div>
+        <div class="team-card card">
+          <img src="./img/estebanempresariTarjeta.jpg" alt="Esteban Velásquez" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'">
+          <h3>Esteban Javier Velásquez Gómez</h3>
+          <div class="divider-line"></div>
+          <p class="role-text">Encargado de la planificación, seguimiento y desarrollo de software</p>
+        </div>
+        <div class="team-card card">
+          <img src="./img/gabrielaempresariTarjeta.jpg" alt="Gabriela Sarria" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'">
+          <h3>Gabriela Andreina Sarria Robaina</h3>
+          <div class="divider-line"></div>
+          <p class="role-text">Responsable del diseño de interfaces y soluciones para la modernización del sistema</p>
+        </div>
+      </div>
+
+      <div class="card card-whatsapp">
+        <div class="whatsapp-info">
+          <h3 id="t-whatsappTitulo">¿Prefieres escribirnos directamente?</h3>
+          <p id="t-whatsappDesc" class="text-dynamic">Contáctanos por WhatsApp y con gusto te atenderemos.</p>
+        </div>
+        <button id="t-btnWhatsapp" class="btn-whatsapp" onclick="contactarWhatsapp()">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:20px; height:20px;">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12.003 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.763.464 3.484 1.345 4.997L2 22l5.117-1.334a9.96 9.96 0 0 0 4.886 1.284h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.182-2.929-7.071a9.935 9.935 0 0 0-7.072-2.876zm0 18.184h-.003a8.223 8.223 0 0 1-4.194-1.148l-.301-.179-3.037.792.811-2.961-.196-.304a8.194 8.194 0 0 1-1.257-4.384c0-4.527 3.685-8.212 8.213-8.212a8.16 8.16 0 0 1 5.807 2.407 8.163 8.163 0 0 1 2.404 5.809c0 4.528-3.685 8.213-8.213 8.213z"/>
+          </svg>
+          <span id="t-labelBtnWhatsapp">Escríbenos por WhatsApp</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PANTALLA 4: LOGIN -->
+    <section id="pantalla-4" class="tab-content">
+      <div class="login-wrapper card">
+        <div class="login-header-banner">
+          <img src="./img/cctv_v1.png" alt="CoVigilant Cabecera" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'">
+        </div>
+
+        <div class="login-split-container">
+          <div class="login-left">
+            <img src="./img/soporte_v1.png" alt="Soporte" onerror="this.src='https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=500&auto=format&fit=crop'">
+          </div>
+          <div class="login-right">
+            <h3 id="t-loginTitulo">Iniciar Sesión</h3>
+            <p id="t-loginSubtitulo" class="login-sub">Bienvenido al Panel Administrativo de CoVigilant</p>
+            
+            <div id="login-status" class="status-box hidden"></div>
+            
+            <form id="login-form" onsubmit="handleLogin(event)">
+              <div class="form-group">
+                <label id="t-labelCorreo" class="form-label">Correo electrónico</label>
+                <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+              </div>
+              <div class="form-group">
+                <label id="t-labelPassword" class="form-label">Contraseña</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+              </div>
+              <button type="submit" id="t-btnEntrar" class="btn-submit">Entrar al Sistema</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================= -->
+  <!-- ================= SECCIÓN DASHBOARD =================== -->
+  <!-- ======================================================= -->
+  <div id="dashboard-wrapper" class="hidden">
+    
+    <div class="header-dark-zone">
+      <div class="header-center-branding">
+        <h1 class="brand-title">CoVigilant</h1>
+        <p id="t-subtituloHeaderDash" class="brand-subtitle">GEA SOLUCIONES IT</p>
+      </div>
+    </div>
+
+    <!-- NAVEGACIÓN SUPERIOR DE DASHBOARD -->
+    <nav id="dashboard-nav-bar" class="dashboard-nav-top">
+      <div class="nav-top-container">
+        <button id="dash-link-general" class="nav-top-link active" onclick="navegarDashboard('general')">📊 Panel General</button>
+        <button id="dash-link-almacen" class="nav-top-link" onclick="navegarDashboard('almacen')">📦 Almacén & Consola</button>
+        <button id="dash-link-servicios" class="nav-top-link" onclick="navegarDashboard('servicios')">🛠️ Servicios (Rutas/Agenda)</button>
+        <button id="dash-link-facturacion" class="nav-top-link" onclick="navegarDashboard('facturacion')">💼 Facturación & Stock</button>
+        <button id="dash-link-devoluciones" class="nav-top-link" onclick="navegarDashboard('devoluciones')">🔄 Devoluciones</button>
+        <button class="nav-top-link btn-exit-top" onclick="logoutDashboard()">🏠 Salir al Home</button>
+      </div>
+    </nav>
+
+    <main class="main-content-dash">
+      
+      <!-- SUB-MODULO 1: PANEL GENERAL -->
+      <section id="dash-general" class="dash-section active">
+        <h2>Panel de Control General CoVigilant</h2>
+        <p class="section-desc">Monitoreo de rendimientos globales, porcentajes de efectividad operativa e indicadores clave.</p>
+
+        <div class="kpi-container">
+          <div class="card kpi-card">
+            <span class="kpi-title">Cumplimiento Operativo</span>
+            <span class="kpi-value" style="color: #10b981;">94.2%</span>
+            <span class="kpi-sub">Meta institucional: 90%</span>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-title">Soporte y Respuestas</span>
+            <span class="kpi-value" style="color: #2563eb;">98.7%</span>
+            <span class="kpi-sub">Tiempo medio &lt; 30 min</span>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-title">Rutas de Cuadrillas</span>
+            <span class="kpi-value" style="color: #f59e0b;">88.5%</span>
+            <span class="kpi-sub">En tiempos estimados</span>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="card chart-box">
+            <h3>Distribución de Servicios Mensuales (%)</h3>
+            <div class="chart-wrapper">
+              <canvas id="chartServicios"></canvas>
+            </div>
+          </div>
+          <div class="card chart-box">
+            <h3>Efectividad por Categoría de Solución (%)</h3>
+            <div class="chart-wrapper">
+              <canvas id="chartEfectividad"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUB-MODULO 2: GESTIÓN DE ALMACÉN & CONSOLA -->
+      <section id="dash-almacen" class="dash-section">
+        <div class="dash-section-title-bar">
+          <h2>Gestión de Almacén (Inventario)</h2>
+          <button class="btn-blue-action" onclick="abrirModalCrud('almacen')">+ Nuevo Artículo</button>
+        </div>
+
+        <div class="card table-container-clean">
+          <table class="data-table-clean">
+            <thead>
+              <tr>
+                <th>ID Global</th>
+                <th>Código</th>
+                <th>Documento ID / Nombre</th>
+                <th>Cantidad</th>
+                <th>Ubicación Estante</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-almacen"></tbody>
+          </table>
+        </div>
+
+        <div class="dash-section-title-bar" style="margin-top: 50px;">
+          <h2>Consola de Consulta de Inventario</h2>
+          <button class="btn-blue-action" onclick="abrirModalCrud('consola')">+ Nuevo Registro Consola</button>
+        </div>
+
+        <div class="card table-container-clean">
+          <table class="data-table-clean">
+            <thead>
+              <tr>
+                <th>ID Global</th>
+                <th>Nombre del Producto</th>
+                <th>Categoría</th>
+                <th>Stock / Control</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-consola"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SUB-MODULO 3: ÓRDENES DE TRABAJO (RUTAS/AGENDA) -->
+      <!-- Módulo codificado para la Evidencia GA7-220501096-AA4-EV03.          -->
+      <!-- Traza al Diagrama de Clases (GA4-220501095-AA2-EV04): clase         -->
+      <!-- "OrdenTrabajo" -> atributo "estado" (PENDIENTE/EN_PROCESO/CERRADA)  -->
+      <!-- y métodos cambiarEstado(), calcularCosto(), generarFactura().      -->
+      <section id="dash-servicios" class="dash-section">
+        <div class="dash-section-title-bar">
+          <h2>Órdenes de Trabajo — Rutas y Agenda de Servicios Técnicos</h2>
+          <button class="btn-blue-action" onclick="abrirModalCrud('servicios')">+ Crear Orden de Trabajo</button>
+        </div>
+        <p class="section-desc">
+          Ciclo de vida de la orden: <span class="badge-estado badge-pendiente">Pendiente</span> →
+          <span class="badge-estado badge-proceso">En Proceso</span> →
+          <span class="badge-estado badge-cerrada">Cerrada</span>. Solo las órdenes en estado
+          "Cerrada" pueden facturarse.
+        </p>
+
+        <div class="card table-container-clean">
+          <table class="data-table-clean">
+            <thead>
+              <tr>
+                <th>ID Orden</th>
+                <th>Fecha de Registro</th>
+                <th>Cliente</th>
+                <th>Técnico Asignado</th>
+                <th>Ruta / Dirección</th>
+                <th>Tipo de Servicio</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-servicios"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SUB-MODULO 4: FACTURACIÓN & STOCK -->
+      <section id="dash-facturacion" class="dash-section">
+        <div class="dash-section-title-bar">
+          <h2>Facturación & Control de Stock</h2>
+          <button class="btn-blue-action" onclick="abrirModalCrud('facturacion')">+ Nuevo Registro</button>
+        </div>
+
+        <div class="card table-container-clean">
+          <table class="data-table-clean">
+            <thead>
+              <tr>
+                <th>ID Global</th>
+                <th>Código Factura</th>
+                <th>Nombre / Cliente</th>
+                <th>Tipo de Servicio</th>
+                <th>Monto Operación</th>
+                <th>Estado del Pago</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-facturacion"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SUB-MODULO 5: DEVOLUCIONES -->
+      <section id="dash-devoluciones" class="dash-section">
+        <div class="dash-section-title-bar">
+          <h2>Historial de Control y Devoluciones Logísticas</h2>
+          <button class="btn-blue-action" onclick="abrirModalCrud('devoluciones')">+ Nuevo Retorno</button>
+        </div>
+
+        <div class="card table-container-clean">
+          <table class="data-table-clean">
+            <thead>
+              <tr>
+                <th>ID Global</th>
+                <th>Código de Ítem</th>
+                <th>Descripción Física</th>
+                <th>Cantidad Retornada</th>
+                <th>Técnico Responsable</th>
+                <th>Observaciones</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-devoluciones"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= MODAL CRUD GENÉRICO MULTI-CAMPO ================= -->
+  <div id="modal-crud" class="modal-overlay hidden">
+    <div class="modal-card card">
+      <h3 id="modal-title">Agregar Registro</h3>
+      <form id="form-modal-crud" onsubmit="guardarRegistroCrud(event)">
+        <div id="inputs-dinamicos-container"></div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel-modal" onclick="cerrarModalCrud()">Cancelar</button>
+          <button type="submit" class="btn-submit-modal">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER MAESTRO ================= -->
+  <footer class="main-footer" id="master-footer">
+    <p id="t-footer">© 2026 CoVigilant - Seguridad Comunitaria (PVA) - Bogotá D.C. Colombia.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
