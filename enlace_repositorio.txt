@@ -1,0 +1,10 @@
+Evidencia: GA7-220501096-AA4-EV03
+Proyecto: CoVigilant - GEA Soluciones IT
+Aprendiz: Gabriela Andreina Sarria Robaina
+
+Enlace del repositorio en GitHub:
+https://github.com/gabrielasarriaa/Proyecto_CoVigilant
+
+(Reemplace la URL anterior por la de su repositorio una vez lo haya
+creado y subido siguiendo la guía "Guía Git local -> GitHub" que se
+adjunta en la conversación).
