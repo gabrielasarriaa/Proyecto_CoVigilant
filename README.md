@@ -63,7 +63,7 @@ Todas las funciones del módulo están documentadas con comentarios
 ## Control de versiones
 
 El proyecto se gestiona con Git y su historial se encuentra publicado en
-GitHub. Ver el archivo `enlace_repositorio.txt` incluido en la carpeta
+GitHub. Ver el archivo `[(https://github.com/gabrielasarriaa/Proyecto_CoVigilant)]` incluido en la carpeta
 comprimida de entrega.
 
 ## Autores — Grupo GEA
